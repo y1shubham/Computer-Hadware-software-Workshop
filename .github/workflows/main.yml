@@ -1,0 +1,28 @@
+name: Python Script Workflow
+
+on:
+  push:
+    branches: [main]  # Run the workflow on pushes to the main branch
+  pull_request:
+    branches: [main]  # Run the workflow on pull requests targeting the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Use the latest version of Ubuntu as the runner
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2  # Checkout the repository to access the script
+
+    - name: Set up Python
+      uses: actions/setup-python@v2  # Set up Python on the runner
+      with:
+        python-version: '3.x'  # Use Python 3.x
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt  # Install project dependencies if any
+
+    - name: Run Python script
+      run: python your_script.py  # Run the Python script
+
+    # Add additional steps for deployment if needed
