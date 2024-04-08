@@ -22,7 +22,7 @@ jobs:
     - name: Convert IPython Notebook to Python script
       run: |
         pip install nbconvert
-        jupyter nbconvert --to script notebook.ipynb
+        jupyter nbconvert --to script final.ipynb
 
     - name: Execute Python script
-      run: python notebook.py
+      run: python final.py
